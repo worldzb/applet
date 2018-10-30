@@ -1,25 +1,24 @@
 <template>
-    <div id="body">
-       <cont></cont>
-       <bottom-menu></bottom-menu>
+    <div id="main">
+        <wx-header></wx-header>
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
-    import hd from './layout/header.vue';
-    import cont from './module/content.vue';
-    import bottomMenu from './module/bottomMenu.vue';
-    export default {
-        components:{
-            hd,
-            
-            cont,
-            bottomMenu,
-        },
+import wxHeader from './layouts/wxHeader.vue';
+export default {
+    name:'Container',
+
+    components:{
+        wxHeader,
     }
+}
 </script>
 
 <style>
-
+    
 </style>
+
+
 
