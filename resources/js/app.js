@@ -7,16 +7,26 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+import Vue from 'vue';
+//将Vue 注册为全局对象
+import VueRouter from 'vue-router';//引入路由
+import config from './config/app-config.js';//引入配置文件
+import Main from './components/Main.vue'; //引入主组件
+import store from './store/store.js';//引入vuex
+import Tool from './lib/dom.js';//引入全局工具函数
+import router from './router/router.js';
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+window.Vue=Vue;
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.use(VueRouter);
+Vue.prototype.config=config;//将配置添加到Vue类当中,再实例化则将config 注册到 vue实例当中
+Vue.prototype.Tool=Tool;//将全局工具函数绑定到Vue类上面
+
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    store,
+    router,
+    render: h => h(Main),
 });
+
