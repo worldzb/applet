@@ -3,24 +3,33 @@
  * @Author: worldzb 
  * @Date: 2018-09-04 16:44:59 
  * @Last Modified by: worldzb
- * @Last Modified time: 2018-09-04 17:43:03
+ * @Last Modified time: 2018-10-31 16:37:10
  */ 
  
 import VueRouter from 'vue-router';//引入路由
 import Vue from 'vue';
+import ComMap from './com-map.js';
 
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-    routes:[{
-        path: '/home', component: require('../components/module/home.vue')
-    },{
-        path: '/add', component: require('../components/module/add.vue')
-    },{
-        path: '/search', component: require('../components/module/search.vue')
-    },{
-        path: '/about', component: require('../components/module/about.vue')
-    }]
+    routes: [
+        {
+            path: '/',
+            name: 'main',
+            component: ComMap.Main,
+            children:[
+                {
+                    path:'/fodder',
+                    component:ComMap.PicUpload
+                },
+                {
+                    path:'/goods',
+                    component:ComMap.GoodsManager
+                }
+            ]
+        }
+    ]
 })
   
 export default router;

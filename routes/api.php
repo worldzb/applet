@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/getToken', 'QiniuController@index');
+Route::get('/getFileInfo', 'QiniuController@getFileInfo');
+Route::get('/getFodderList', 'QiniuController@getFodderList');
+Route::post('/picUpload', 'QiniuController@picUpload');

@@ -12,10 +12,12 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.4.7/theme-chalk/index.css" rel="stylesheet">
+    
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app"></div>
-    <script src="{{ asset('js/app.js') }}"></script>
+     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

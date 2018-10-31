@@ -211,4 +211,9 @@ return [
 
     ],
 
+    /**
+     *  七牛云帐号配置
+     */
+    'QINIU_ACCESSKEY' => env('QINIU_ACCESSKEY'),
+    'QINIU_SECRETKEY' => env('QINIU_SECRETKEY'),
 ];

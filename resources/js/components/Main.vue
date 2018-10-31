@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import wxHeader from './layouts/wxHeader.vue';
+import wxHeader from './main/wxHeader.vue';
 export default {
     name:'Container',
 
