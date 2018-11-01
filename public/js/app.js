@@ -55276,7 +55276,7 @@ var content = __webpack_require__(116);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(16)("165c5a4e", content, false, {});
+var update = __webpack_require__(16)("7697717b", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -55424,7 +55424,7 @@ var content = __webpack_require__(121);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(16)("364f0fcf", content, false, {});
+var update = __webpack_require__(16)("5f8edfef", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -55696,7 +55696,7 @@ var content = __webpack_require__(127);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(16)("6ddc2785", content, false, {});
+var update = __webpack_require__(16)("82536ed0", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -55992,7 +55992,7 @@ var content = __webpack_require__(132);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(16)("59af1b00", content, false, {});
+var update = __webpack_require__(16)("48456d66", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -56016,7 +56016,7 @@ exports = module.exports = __webpack_require__(15)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -56027,6 +56027,26 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -56089,8 +56109,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 g_price_old: '',
                 g_desc: [],
                 g_sales: 0
+            },
+            temp: {
+                g_header: '',
+                g_desc: ''
             }
-
         };
     },
     created: function created() {},
@@ -56105,6 +56128,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         handleClose: function handleClose() {},
         handleClick: function handleClick() {
             console.log('fdsafa');
+        },
+        addGoods: function addGoods() {
+            console.log(this.goods);
+            axios.post('', this.goods).then(function () {});
+
+            this.$message({
+                message: '添加成功',
+                type: 'success'
+            });
+        },
+        addGHeader: function addGHeader() {
+            console.log(this.temp.g_header);
+            if (this.temp.g_header) {
+                this.goods.g_header.push(this.temp.g_header);
+            }
+        },
+        addGDesc: function addGDesc() {
+            if (this.temp.g_desc) {
+                this.goods.g_desc.push(this.temp.g_desc);
+            }
         }
     }
 });
@@ -56219,23 +56262,6 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "el-form-item",
-                            { attrs: { label: "描述", prop: "name" } },
-                            [
-                              _c("el-input", {
-                                model: {
-                                  value: _vm.goods.g_desc,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.goods, "g_desc", $$v)
-                                  },
-                                  expression: "goods.g_desc"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "el-form-item",
                             { attrs: { label: "销量", prop: "name" } },
                             [
                               _c("el-input", {
@@ -56249,9 +56275,133 @@ var render = function() {
                               })
                             ],
                             1
-                          )
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "el-form-item",
+                            { attrs: { label: "添加头图", prop: "name" } },
+                            [
+                              _c(
+                                "el-input",
+                                {
+                                  attrs: { placeholder: "头图地址key" },
+                                  model: {
+                                    value: _vm.temp.g_header,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.temp, "g_header", $$v)
+                                    },
+                                    expression: "temp.g_header"
+                                  }
+                                },
+                                [
+                                  _c("template", { slot: "prepend" }, [
+                                    _vm._v("key")
+                                  ])
+                                ],
+                                2
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "el-button",
+                                {
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addGHeader()
+                                    }
+                                  }
+                                },
+                                [_vm._v("添加头图")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "el-button",
+                                {
+                                  on: {
+                                    click: function($event) {
+                                      _vm.goods.g_header = []
+                                    }
+                                  }
+                                },
+                                [_vm._v("清空")]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "el-form-item",
+                            { attrs: { label: "添加头图", prop: "name" } },
+                            [
+                              _c(
+                                "el-input",
+                                {
+                                  attrs: { placeholder: "描述地址key" },
+                                  model: {
+                                    value: _vm.temp.g_desc,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.temp, "g_desc", $$v)
+                                    },
+                                    expression: "temp.g_desc"
+                                  }
+                                },
+                                [
+                                  _c("template", { slot: "prepend" }, [
+                                    _vm._v("key")
+                                  ])
+                                ],
+                                2
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "el-button",
+                                {
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addGDesc()
+                                    }
+                                  }
+                                },
+                                [_vm._v("添加描述")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "el-button",
+                                {
+                                  on: {
+                                    click: function($event) {
+                                      _vm.goods.g_desc = []
+                                    }
+                                  }
+                                },
+                                [_vm._v("清空")]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "el-button",
+                            {
+                              on: {
+                                click: function($event) {
+                                  _vm.addGoods()
+                                }
+                              }
+                            },
+                            [_vm._v("确认添加")]
+                          ),
+                          _vm._v(" "),
+                          _vm._l(_vm.goods.g_header, function(item) {
+                            return _c("text", { key: item }, [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(item) +
+                                  "\n                        "
+                              )
+                            ])
+                          })
                         ],
-                        1
+                        2
                       )
                     ],
                     1
@@ -56276,14 +56426,39 @@ var render = function() {
                         _c(
                           "el-carousel",
                           { attrs: { height: "150px" } },
-                          _vm._l(_vm.carousel_data, function(item) {
+                          _vm._l(_vm.goods.g_header, function(item) {
                             return _c("el-carousel-item", { key: item }, [
-                              _c("img", { attrs: { src: item, alt: "" } })
+                              _vm._v(
+                                "\n                                " +
+                                  _vm._s(item) +
+                                  "\n                                "
+                              ),
+                              _c("img", {
+                                attrs: {
+                                  src:
+                                    "http://phg4we4j7.bkt.clouddn.com/" + item,
+                                  alt: "xvx"
+                                }
+                              })
                             ])
                           })
-                        )
+                        ),
+                        _vm._v(" "),
+                        _c("br"),
+                        _c("br"),
+                        _vm._v(" "),
+                        _vm._l(_vm.goods.g_desc, function(item) {
+                          return _c("div", { key: item }, [
+                            _c("img", {
+                              attrs: {
+                                src: "http://phg4we4j7.bkt.clouddn.com/" + item,
+                                alt: "xvx"
+                              }
+                            })
+                          ])
+                        })
                       ],
-                      1
+                      2
                     )
                   ])
                 ],
@@ -56390,7 +56565,7 @@ var content = __webpack_require__(138);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(16)("aa1b8b6a", content, false, {});
+var update = __webpack_require__(16)("c638636a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags

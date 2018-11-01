@@ -21,3 +21,5 @@ Route::get('/getToken', 'QiniuController@index');
 Route::get('/getFileInfo', 'QiniuController@getFileInfo');
 Route::get('/getFodderList', 'QiniuController@getFodderList');
 Route::post('/picUpload', 'QiniuController@picUpload');
+
+Route::post('/goods', 'QiniuController@picUpload');

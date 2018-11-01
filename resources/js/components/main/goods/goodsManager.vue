@@ -19,30 +19,50 @@
                             <el-form-item label="原价" prop="name">
                                 <el-input v-model="goods.g_price_old"></el-input>
                             </el-form-item>
-                            <el-form-item label="描述" prop="name">
-                                <el-input v-model="goods.g_desc"></el-input>
-                            </el-form-item>
+                            
                             <el-form-item label="销量" prop="name">
                                 <el-input v-model="goods.g_sales"></el-input>
                             </el-form-item>
 
+                            <el-form-item label="添加头图" prop="name">
+                                <el-input placeholder="头图地址key" v-model="temp.g_header">
+                                    <template slot="prepend">key</template>
+                                </el-input>
+                                <el-button @click="addGHeader()">添加头图</el-button>
+                                <el-button @click="goods.g_header=[]">清空</el-button>
+                            </el-form-item>
+                            <el-form-item label="添加头图" prop="name">
+                                <el-input placeholder="描述地址key" v-model="temp.g_desc">
+                                    <template slot="prepend">key</template>
+                                </el-input>
+                                <el-button @click="addGDesc()">添加描述</el-button>
+                                <el-button @click="goods.g_desc=[]">清空</el-button>
+                            </el-form-item>
+                            <el-button @click="addGoods()">确认添加</el-button>
+                            <text v-for="item in goods.g_header" :key="item">
+                                {{item}}
+                            </text>
                         </el-form>
                     </el-col>
                     <el-col :span="10">
                         <div style="border:1px solid #999">
                             <h4 style="border-bottom:1px solid #999;padding:10px">预览</h4>
                             <el-carousel height="150px">
-                                <el-carousel-item v-for="item in carousel_data" :key="item">
-                                    <img :src="item" alt="">
+                                <el-carousel-item v-for="item in goods.g_header" :key="item">
+                                    {{item}}
+                                    <img :src="'http://phg4we4j7.bkt.clouddn.com/'+item" alt="xvx">
                                 </el-carousel-item>
                             </el-carousel>
+                            <br><br>
+                            <div v-for="item in goods.g_desc" :key="item">
+                                <img :src="'http://phg4we4j7.bkt.clouddn.com/'+item" alt="xvx">
+                            </div>
                         </div>
                     </el-col>
                 </el-row>
             </el-main>
         </el-container>
 
-        
     </div>
 </template>
 
@@ -60,8 +80,11 @@ export default {
                 g_price_old:'',
                 g_desc:[],
                 g_sales:0,
+            },
+            temp:{
+                g_header:'',
+                g_desc:'',
             }
-
         }
     },
     created(){
@@ -79,7 +102,29 @@ export default {
         },
         handleClick(){
             console.log('fdsafa');
-        }
+        },
+        addGoods(){
+            console.log(this.goods);
+            axios.post('',this.goods).then(()=>{
+                
+            });
+
+            this.$message({
+                message: '添加成功',
+                type: 'success'
+            });
+        },
+        addGHeader(){
+            console.log(this.temp.g_header);
+            if(this.temp.g_header){
+                 this.goods.g_header.push(this.temp.g_header);
+            }
+        },
+        addGDesc(){
+            if(this.temp.g_desc){
+                 this.goods.g_desc.push(this.temp.g_desc);
+            }
+        },
     }
 }
 </script>
