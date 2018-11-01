@@ -9,7 +9,6 @@
 import wxHeader from './main/wxHeader.vue';
 export default {
     name:'Container',
-
     components:{
         wxHeader,
     }
