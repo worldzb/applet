@@ -55276,7 +55276,7 @@ var content = __webpack_require__(116);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(16)("7697717b", content, false, {});
+var update = __webpack_require__(16)("165c5a4e", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -55424,7 +55424,7 @@ var content = __webpack_require__(121);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(16)("5f8edfef", content, false, {});
+var update = __webpack_require__(16)("364f0fcf", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -55696,7 +55696,7 @@ var content = __webpack_require__(127);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(16)("82536ed0", content, false, {});
+var update = __webpack_require__(16)("6ddc2785", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -55862,7 +55862,7 @@ var render = function() {
         _vm._l(_vm.lib.data, function(item, index) {
           return _c(
             "el-col",
-            { key: item, attrs: { span: 4 } },
+            { key: item.id, attrs: { span: 4 } },
             [
               _c(
                 "el-card",
@@ -55992,7 +55992,7 @@ var content = __webpack_require__(132);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(16)("48456d66", content, false, {});
+var update = __webpack_require__(16)("59af1b00", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -56016,7 +56016,7 @@ exports = module.exports = __webpack_require__(15)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -56095,6 +56095,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -56103,6 +56112,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             activeName: '',
             //商品滚动头图
             goods: {
+                g_type: '',
                 g_header: [],
                 g_title: '',
                 g_price_now: '',
@@ -56121,7 +56131,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         createGoods: function createGoods() {
             this.$message({
-                message: '恭喜你，这是一条成功消息',
+                message: this.config.PATH,
                 type: 'success'
             });
         },
@@ -56131,7 +56141,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         addGoods: function addGoods() {
             console.log(this.goods);
-            axios.post('', this.goods).then(function () {});
+            axios.post(this.config.PATH + 'goods', this.goods).then(function () {});
 
             this.$message({
                 message: '添加成功',
@@ -56139,15 +56149,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         addGHeader: function addGHeader() {
-            console.log(this.temp.g_header);
-            if (this.temp.g_header) {
-                this.goods.g_header.push(this.temp.g_header);
-            }
+            var _this = this;
+
+            //console.log(this.temp.g_header);
+            axios.get(this.config.PATH + 'checkPic', {
+                params: {
+                    key: this.temp.g_header
+                }
+            }).then(function (res) {
+                if (res) {
+                    _this.goods.g_header.push({
+                        id: res.data.id,
+                        key: res.data.f_key
+                    });
+                }
+            });
         },
         addGDesc: function addGDesc() {
-            if (this.temp.g_desc) {
-                this.goods.g_desc.push(this.temp.g_desc);
-            }
+            var _this2 = this;
+
+            axios.get(this.config.PATH + 'checkPic', {
+                params: {
+                    key: this.temp.g_desc
+                }
+            }).then(function (res) {
+                console.log(res.data);
+                if (res) {
+                    _this2.goods.g_desc.push({
+                        id: res.data.id,
+                        key: res.data.f_key
+                    });
+                }
+            });
         }
     }
 });
@@ -56209,6 +56242,45 @@ var render = function() {
                           attrs: { "label-width": "100px" }
                         },
                         [
+                          _c(
+                            "el-form-item",
+                            { attrs: { label: "类型", prop: "name" } },
+                            [
+                              _c(
+                                "el-select",
+                                {
+                                  attrs: { placeholder: "类型" },
+                                  model: {
+                                    value: _vm.goods.g_type,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.goods, "g_type", $$v)
+                                    },
+                                    expression: "goods.g_type"
+                                  }
+                                },
+                                [
+                                  _c("el-option", {
+                                    attrs: { label: "眼睛", value: "eyes" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("el-option", {
+                                    attrs: { label: "鼻子", value: "nose" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("el-option", {
+                                    attrs: { label: "自体脂肪", value: "fat" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("el-option", {
+                                    attrs: { label: "皮肤", value: "skin" }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
                           _c(
                             "el-form-item",
                             { attrs: { label: "标题", prop: "name" } },
@@ -56392,7 +56464,7 @@ var render = function() {
                           ),
                           _vm._v(" "),
                           _vm._l(_vm.goods.g_header, function(item) {
-                            return _c("text", { key: item }, [
+                            return _c("text", { key: item.id }, [
                               _vm._v(
                                 "\n                            " +
                                   _vm._s(item) +
@@ -56427,16 +56499,17 @@ var render = function() {
                           "el-carousel",
                           { attrs: { height: "150px" } },
                           _vm._l(_vm.goods.g_header, function(item) {
-                            return _c("el-carousel-item", { key: item }, [
+                            return _c("el-carousel-item", { key: item.id }, [
                               _vm._v(
                                 "\n                                " +
-                                  _vm._s(item) +
+                                  _vm._s(item.key) +
                                   "\n                                "
                               ),
                               _c("img", {
                                 attrs: {
                                   src:
-                                    "http://phg4we4j7.bkt.clouddn.com/" + item,
+                                    "http://phg4we4j7.bkt.clouddn.com/" +
+                                    item.key,
                                   alt: "xvx"
                                 }
                               })
@@ -56448,10 +56521,12 @@ var render = function() {
                         _c("br"),
                         _vm._v(" "),
                         _vm._l(_vm.goods.g_desc, function(item) {
-                          return _c("div", { key: item }, [
+                          return _c("div", { key: item.id }, [
                             _c("img", {
                               attrs: {
-                                src: "http://phg4we4j7.bkt.clouddn.com/" + item,
+                                src:
+                                  "http://phg4we4j7.bkt.clouddn.com/" +
+                                  item.key,
                                 alt: "xvx"
                               }
                             })
@@ -56494,11 +56569,11 @@ if (false) {
  * @Author: worldzb 
  * @Date: 2018-09-01 10:40:02 
  * @Last Modified by: worldzb
- * @Last Modified time: 2018-09-05 13:40:55
+ * @Last Modified time: 2018-11-02 09:32:48
  */
 
 var config = {
-  PATH: '/public/index.php/'
+  PATH: 'http://localhost:8000/public/api/'
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (config);
@@ -56565,7 +56640,7 @@ var content = __webpack_require__(138);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(16)("c638636a", content, false, {});
+var update = __webpack_require__(16)("aa1b8b6a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags

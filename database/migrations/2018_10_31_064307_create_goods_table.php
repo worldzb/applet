@@ -15,7 +15,7 @@ class CreateGoodsTable extends Migration
     {
         Schema::create('goods', function (Blueprint $table) {
             $table->increments('id');
-
+            $table->string('g_type')->comment('分类');
             $table->string('g_title')->comment('标题');
             $table->string('g_price_now')->comment('现价');
             $table->string('g_price_old')->comment('原价');

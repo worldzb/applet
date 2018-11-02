@@ -3,12 +3,11 @@
  * @Author: worldzb 
  * @Date: 2018-09-01 10:40:02 
  * @Last Modified by: worldzb
- * @Last Modified time: 2018-09-05 13:40:55
+ * @Last Modified time: 2018-11-02 09:32:48
  */ 
 
 const config={
-    PATH:'/public/index.php/',
+    PATH:'http://localhost:8000/public/api/',
 }
-
 
 export default config;

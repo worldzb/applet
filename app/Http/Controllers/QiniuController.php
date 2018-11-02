@@ -49,4 +49,7 @@ class QiniuController extends Controller
         return $res;
     }
 
+    public function checkPic(Request $r){
+        return Fodder::where('f_key',$r->all()['key'])->first()?:0;
+    }
 }

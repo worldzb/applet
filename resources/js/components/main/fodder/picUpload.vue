@@ -17,7 +17,7 @@
         </el-dialog>
 
         <el-row>
-            <el-col :span="4" v-for="(item, index) in lib.data" :key="item">
+            <el-col :span="4" v-for="(item, index) in lib.data" :key="item.id">
                 <el-card :body-style="{ padding: '0px', overflow:'hidden' }">
                 <img :src="'http://phg4we4j7.bkt.clouddn.com/'+item.f_key" class="image">
                 <div style="padding: 14px;">

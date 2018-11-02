@@ -10,6 +10,15 @@
                 <el-row :gutter="20">
                     <el-col :span="10">
                         <el-form label-width="100px" class="demo-ruleForm">
+                             <el-form-item label="类型" prop="name">
+                                <el-select v-model="goods.g_type" placeholder="类型">
+                                    <el-option label="眼睛" value="eyes"></el-option>
+                                    <el-option label="鼻子" value="nose"></el-option>
+                                    <el-option label="自体脂肪" value="fat"></el-option>
+                                    <el-option label="皮肤" value="skin"></el-option>
+                                </el-select>
+
+                            </el-form-item>
                             <el-form-item label="标题" prop="name">
                                 <el-input v-model="goods.g_title"></el-input>
                             </el-form-item>
@@ -39,7 +48,7 @@
                                 <el-button @click="goods.g_desc=[]">清空</el-button>
                             </el-form-item>
                             <el-button @click="addGoods()">确认添加</el-button>
-                            <text v-for="item in goods.g_header" :key="item">
+                            <text v-for="item in goods.g_header" :key="item.id">
                                 {{item}}
                             </text>
                         </el-form>
@@ -48,14 +57,14 @@
                         <div style="border:1px solid #999">
                             <h4 style="border-bottom:1px solid #999;padding:10px">预览</h4>
                             <el-carousel height="150px">
-                                <el-carousel-item v-for="item in goods.g_header" :key="item">
-                                    {{item}}
-                                    <img :src="'http://phg4we4j7.bkt.clouddn.com/'+item" alt="xvx">
+                                <el-carousel-item v-for="item in goods.g_header" :key="item.id">
+                                    {{item.key}}
+                                    <img :src="'http://phg4we4j7.bkt.clouddn.com/'+item.key" alt="xvx">
                                 </el-carousel-item>
                             </el-carousel>
                             <br><br>
-                            <div v-for="item in goods.g_desc" :key="item">
-                                <img :src="'http://phg4we4j7.bkt.clouddn.com/'+item" alt="xvx">
+                            <div v-for="item in goods.g_desc" :key="item.id">
+                                <img :src="'http://phg4we4j7.bkt.clouddn.com/'+item.key" alt="xvx">
                             </div>
                         </div>
                     </el-col>
@@ -74,6 +83,7 @@ export default {
             activeName:'',
             //商品滚动头图
             goods:{
+                g_type:'',
                 g_header:[],
                 g_title:'',
                 g_price_now:'',
@@ -93,7 +103,7 @@ export default {
     methods:{
         createGoods(){
             this.$message({
-                message: '恭喜你，这是一条成功消息',
+                message: this.config.PATH,
                 type: 'success'
             });
         },
@@ -105,7 +115,7 @@ export default {
         },
         addGoods(){
             console.log(this.goods);
-            axios.post('',this.goods).then(()=>{
+            axios.post(this.config.PATH+'goods',this.goods).then(()=>{
                 
             });
 
@@ -115,15 +125,35 @@ export default {
             });
         },
         addGHeader(){
-            console.log(this.temp.g_header);
-            if(this.temp.g_header){
-                 this.goods.g_header.push(this.temp.g_header);
-            }
+            //console.log(this.temp.g_header);
+            axios.get(this.config.PATH+'checkPic',{
+                params:{
+                    key:this.temp.g_header
+                }
+            }).then((res)=>{
+                if(res){
+                    this.goods.g_header.push({
+                        id:res.data.id,
+                        key:res.data.f_key
+                    });
+                }
+            });
+           
         },
         addGDesc(){
-            if(this.temp.g_desc){
-                 this.goods.g_desc.push(this.temp.g_desc);
-            }
+             axios.get(this.config.PATH+'checkPic',{
+                params:{
+                    key:this.temp.g_desc
+                }
+            }).then((res)=>{
+                console.log(res.data);
+                if(res){
+                    this.goods.g_desc.push({
+                        id:res.data.id,
+                        key:res.data.f_key
+                    });
+                }
+            });
         },
     }
 }
