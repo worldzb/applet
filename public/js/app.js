@@ -55276,7 +55276,7 @@ var content = __webpack_require__(116);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(16)("165c5a4e", content, false, {});
+var update = __webpack_require__(16)("7697717b", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -55424,7 +55424,7 @@ var content = __webpack_require__(121);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(16)("364f0fcf", content, false, {});
+var update = __webpack_require__(16)("5f8edfef", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -55696,7 +55696,7 @@ var content = __webpack_require__(127);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(16)("6ddc2785", content, false, {});
+var update = __webpack_require__(16)("82536ed0", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -55773,7 +55773,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 //https://jsonplaceholder.typicode.com/posts/
 
-var PATH = 'http://localhost:8000/public/api/';
+var PATH = 'https://api.jinggangym.com/api/';
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
@@ -55992,7 +55992,7 @@ var content = __webpack_require__(132);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(16)("59af1b00", content, false, {});
+var update = __webpack_require__(16)("48456d66", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -56117,7 +56117,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-var PATH = 'http://localhost:8000/public/api/';
+var PATH = 'https://api.jinggangym.com/api/';
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
@@ -56716,7 +56716,7 @@ var content = __webpack_require__(138);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(16)("aa1b8b6a", content, false, {});
+var update = __webpack_require__(16)("c638636a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
