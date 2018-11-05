@@ -11,6 +11,16 @@ class GoodsController extends Controller
     /**
      * 
      */
+    public function main(Request $r){
+        $list=$this->getNewGoodsList($r);
+        return ["header"=>[
+            "http://m.jinggangym.com/public/images/index/1/mjg-index-1-banner-01.jpg",
+            "http://p9g78uqs5.bkt.clouddn.com/banner03.jpg",
+            "http://p9g78uqs5.bkt.clouddn.com/banner.jpg",
+            "http://p9g78uqs5.bkt.clouddn.com/banner04.jpg"
+        ],"list"=>$list];
+    }
+
     public function addGoods(Request $r){
         
         $arrGet=$r->all();
@@ -50,12 +60,20 @@ class GoodsController extends Controller
         return $goods;
     }
 
-    public function getGoodsList(Request $r){
+    public function getGoodsList(Request $r,$type){
         $goods=new Goods();
-        $goods=Goods::where('id','=',$id)->get();
+        $goods=Goods::where('g_type','=',$type)->get();
         foreach($goods as $key=>$item ){
-            $goods[$key]['g_header']=$item->getHeader();
-            $goods[$key]['g_desc']=$item->getDesc();
+            $goods[$key]['g_header']=$item->getHeaderFirst();
+        }
+        return $goods;
+    }
+
+    public function getNewGoodsList(Request $r){
+        $goods=new Goods();
+        $goods=Goods::where('id','>',0)->orderBy('id','desc')->limit(10)->get();
+        foreach($goods as $key=>$item ){
+            $goods[$key]['g_header']=$item->getHeaderFirst();
         }
         return $goods;
     }

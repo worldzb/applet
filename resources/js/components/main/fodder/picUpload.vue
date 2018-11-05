@@ -19,15 +19,15 @@
         <el-row>
             <el-col :span="4" v-for="(item, index) in lib.data" :key="item.id">
                 <el-card :body-style="{ padding: '0px', overflow:'hidden' }">
-                <img :src="'http://phg4we4j7.bkt.clouddn.com/'+item.f_key" class="image">
-                <div style="padding: 14px;">
-                    <span><strong>key:</strong>{{ item.f_key }}</span> <br>
-                    <span><strong>hash:</strong>{{ item.f_hash }}</span>
-                    <div class="bottom clearfix">
-                    <time class="time">{{ item.created_at }}</time>
-                    <el-button type="text" class="button">删除</el-button>
+                    <img :src="'http://phg4we4j7.bkt.clouddn.com/'+item.f_key" class="image">
+                    <div style="padding: 14px;">
+                        <span><strong>key:</strong>{{ item.f_key }}</span> <br>
+                        <span><strong>hash:</strong>{{ item.f_hash }}</span>
+                        <div class="bottom clearfix">
+                        <time class="time">{{ item.created_at }}</time>
+                        <el-button type="text" class="button">删除</el-button>
+                        </div>
                     </div>
-                </div>
                 </el-card>
             </el-col>
         </el-row>

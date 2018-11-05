@@ -56016,7 +56016,7 @@ exports = module.exports = __webpack_require__(15)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -56104,7 +56104,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
+var PATH = 'http://localhost:8000/public/api/';
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
@@ -56123,10 +56136,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             temp: {
                 g_header: '',
                 g_desc: ''
-            }
+            },
+            lib: []
         };
     },
-    created: function created() {},
+    created: function created() {
+        var _this = this;
+
+        axios.get(PATH + 'getFodderList', {}).then(function (res) {
+            _this.lib = res.data;
+        });
+    },
 
     methods: {
         createGoods: function createGoods() {
@@ -56149,7 +56169,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         addGHeader: function addGHeader() {
-            var _this = this;
+            var _this2 = this;
 
             //console.log(this.temp.g_header);
             axios.get(this.config.PATH + 'checkPic', {
@@ -56158,7 +56178,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }
             }).then(function (res) {
                 if (res) {
-                    _this.goods.g_header.push({
+                    _this2.goods.g_header.push({
                         id: res.data.id,
                         key: res.data.f_key
                     });
@@ -56166,7 +56186,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         addGDesc: function addGDesc() {
-            var _this2 = this;
+            var _this3 = this;
 
             axios.get(this.config.PATH + 'checkPic', {
                 params: {
@@ -56175,7 +56195,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).then(function (res) {
                 console.log(res.data);
                 if (res) {
-                    _this2.goods.g_desc.push({
+                    _this3.goods.g_desc.push({
                         id: res.data.id,
                         key: res.data.f_key
                     });
@@ -56233,7 +56253,63 @@ var render = function() {
                 [
                   _c(
                     "el-col",
-                    { attrs: { span: 10 } },
+                    {
+                      staticStyle: { height: "800px", overflow: "auto" },
+                      attrs: { span: 6 }
+                    },
+                    _vm._l(_vm.lib.data, function(item, index) {
+                      return _c(
+                        "el-row",
+                        { key: item.id, attrs: { gutter: 10 } },
+                        [
+                          _c("el-col", { attrs: { span: 8 } }, [
+                            _c("img", {
+                              staticClass: "image",
+                              staticStyle: { width: "100%" },
+                              attrs: {
+                                src:
+                                  "http://phg4we4j7.bkt.clouddn.com/" +
+                                  item.f_key
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "el-col",
+                            { attrs: { span: 3 } },
+                            [
+                              _c("span", [
+                                _c("strong", [_vm._v("key:")]),
+                                _vm._v(_vm._s(item.f_key))
+                              ]),
+                              _vm._v(" "),
+                              _c("br"),
+                              _vm._v(" "),
+                              _c("span", [
+                                _c("strong", [_vm._v("hash:")]),
+                                _vm._v(_vm._s(item.f_hash))
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "el-button",
+                                {
+                                  staticClass: "button",
+                                  attrs: { type: "text" }
+                                },
+                                [_vm._v("删除")]
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    })
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-col",
+                    { attrs: { span: 7 } },
                     [
                       _c(
                         "el-form",
@@ -56479,7 +56555,7 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c("el-col", { attrs: { span: 10 } }, [
+                  _c("el-col", { attrs: { span: 7 } }, [
                     _c(
                       "div",
                       { staticStyle: { border: "1px solid #999" } },

@@ -8,7 +8,19 @@
             </el-aside>
             <el-main>
                 <el-row :gutter="20">
-                    <el-col :span="10">
+                    <el-col :span="6" style="height:800px;overflow:auto">
+                        <el-row :gutter="10" v-for="(item, index) in lib.data" :key="item.id"> 
+                            <el-col :span="8">
+                                <img :src="'http://phg4we4j7.bkt.clouddn.com/'+item.f_key" class="image" style="width:100%">
+                            </el-col>
+                            <el-col :span="3">
+                                <span><strong>key:</strong>{{ item.f_key }}</span> <br>
+                                <span><strong>hash:</strong>{{ item.f_hash }}</span>
+                                <el-button type="text" class="button">删除</el-button>
+                            </el-col>
+                        </el-row>
+                    </el-col>
+                    <el-col :span="7">
                         <el-form label-width="100px" class="demo-ruleForm">
                              <el-form-item label="类型" prop="name">
                                 <el-select v-model="goods.g_type" placeholder="类型">
@@ -53,7 +65,7 @@
                             </text>
                         </el-form>
                     </el-col>
-                    <el-col :span="10">
+                    <el-col :span="7">
                         <div style="border:1px solid #999">
                             <h4 style="border-bottom:1px solid #999;padding:10px">预览</h4>
                             <el-carousel height="150px">
@@ -76,6 +88,7 @@
 </template>
 
 <script>
+const PATH='http://localhost:8000/public/api/';
 export default {
     data(){
         return {
@@ -94,11 +107,14 @@ export default {
             temp:{
                 g_header:'',
                 g_desc:'',
-            }
+            },
+            lib:[],
         }
     },
     created(){
-        
+        axios.get(PATH+'getFodderList',{}).then((res)=>{
+            this.lib=res.data;
+        });
     },
     methods:{
         createGoods(){

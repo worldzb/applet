@@ -25,4 +25,6 @@ Route::get('/checkPic','QiniuController@checkPic');
 
 Route::post('/goods', 'GoodsController@addGoods');
 Route::get('/goods/{id}', 'GoodsController@getGoods');
-Route::get('/goodList/{id}', 'GoodsController@getGoods');
+Route::get('/goodList/{type}', 'GoodsController@getGoodsList');
+Route::get('/goodNewList', 'GoodsController@getNewGoodsList');
+Route::get('/main', 'GoodsController@main');
