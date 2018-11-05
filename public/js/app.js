@@ -55773,7 +55773,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 //https://jsonplaceholder.typicode.com/posts/
 
-var PATH = 'https://api.jinggangym.com/api/';
+var PATH = 'http://api.jinggangym.com/api/';
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
@@ -56117,7 +56117,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-var PATH = 'https://api.jinggangym.com/api/';
+var PATH = 'http://api.jinggangym.com/api/';
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {

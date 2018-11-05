@@ -38,7 +38,7 @@
 <script>
 //https://jsonplaceholder.typicode.com/posts/
 
-const PATH='https://api.jinggangym.com/api/';
+const PATH='http://api.jinggangym.com/api/';
 export default {
     data(){
         return {

@@ -88,7 +88,7 @@
 </template>
 
 <script>
-const PATH='https://api.jinggangym.com/api/';
+const PATH='http://api.jinggangym.com/api/';
 export default {
     data(){
         return {
