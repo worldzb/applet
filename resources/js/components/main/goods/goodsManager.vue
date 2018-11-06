@@ -20,23 +20,26 @@
                             </el-col>
                         </el-row>
                     </el-col>
+
                     <el-col :span="7">
                         <el-form label-width="100px" class="demo-ruleForm">
-                             <el-form-item label="类型" prop="name">
+                            <el-form-item label="类型" prop="name">
                                 <el-select v-model="goods.g_type" placeholder="类型">
                                     <el-option label="眼睛" value="eyes"></el-option>
                                     <el-option label="鼻子" value="nose"></el-option>
                                     <el-option label="自体脂肪" value="fat"></el-option>
                                     <el-option label="皮肤" value="skin"></el-option>
                                 </el-select>
-
                             </el-form-item>
+
                             <el-form-item label="标题" prop="name">
                                 <el-input v-model="goods.g_title"></el-input>
                             </el-form-item>
+
                             <el-form-item label="现价" prop="name">
                                 <el-input v-model="goods.g_price_now"></el-input>
                             </el-form-item>
+
                             <el-form-item label="原价" prop="name">
                                 <el-input v-model="goods.g_price_old"></el-input>
                             </el-form-item>
@@ -65,6 +68,7 @@
                             </text>
                         </el-form>
                     </el-col>
+
                     <el-col :span="7">
                         <div style="border:1px solid #999">
                             <h4 style="border-bottom:1px solid #999;padding:10px">预览</h4>
@@ -80,16 +84,19 @@
                             </div>
                         </div>
                     </el-col>
+
                 </el-row>
             </el-main>
         </el-container>
-
     </div>
 </template>
 
 <script>
-const PATH='http://api.jinggangym.com/api/';
+
+//  http://api.jinggangym.com/api/
+const PATH='http://localhost:8000/public/index.php/api/';
 export default {
+    
     data(){
         return {
             dialogVisible:false,
@@ -111,6 +118,7 @@ export default {
             lib:[],
         }
     },
+
     created(){
         axios.get(PATH+'getFodderList',{}).then((res)=>{
             this.lib=res.data;
@@ -173,6 +181,7 @@ export default {
         },
     }
 }
+
 </script>
 
 <style>

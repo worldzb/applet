@@ -55771,9 +55771,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 
-//https://jsonplaceholder.typicode.com/posts/
-
-var PATH = 'http://api.jinggangym.com/api/';
+//  https://jsonplaceholder.typicode.com/posts/
+//  http://localhost:8000/public/index.php/api/
+var PATH = 'http://localhost:8000/public/index.php/api/';
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
@@ -56017,7 +56017,7 @@ exports = module.exports = __webpack_require__(15)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -56117,8 +56117,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
-var PATH = 'http://api.jinggangym.com/api/';
+
+//  http://api.jinggangym.com/api/
+var PATH = 'http://localhost:8000/public/index.php/api/';
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
@@ -56646,11 +56652,11 @@ if (false) {
  * @Author: worldzb 
  * @Date: 2018-09-01 10:40:02 
  * @Last Modified by: worldzb
- * @Last Modified time: 2018-11-06 13:46:43
+ * @Last Modified time: 2018-11-06 19:36:44
  */
 
 var config = {
-  PATH: 'http://api.jinggangym.com/api/'
+  PATH: 'http://localhost:8000/public/index.php/api/'
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (config);

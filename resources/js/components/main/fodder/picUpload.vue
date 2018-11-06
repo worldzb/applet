@@ -36,9 +36,9 @@
 </template>
 
 <script>
-//https://jsonplaceholder.typicode.com/posts/
-
-const PATH='http://api.jinggangym.com/api/';
+//  https://jsonplaceholder.typicode.com/posts/
+//  http://localhost:8000/public/index.php/api/
+const PATH='http://localhost:8000/public/index.php/api/';
 export default {
     data(){
         return {
@@ -58,7 +58,6 @@ export default {
         axios.get(PATH+'getFodderList',{}).then((res)=>{
             this.lib=res.data;
         });
-
     },
     methods:{
         handleRemove(file, fileList) {
