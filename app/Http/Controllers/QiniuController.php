@@ -15,11 +15,17 @@ class QiniuController extends Controller
         $this->QN=new ToolQiniu();
     }
 
-    public function index()
+    /**
+     * 获取七牛云token
+     */
+    public function getToken()
     {
         return $this->QN->getToken();
     }
 
+    /**
+     * 获取文件信息
+     */
     public function getFileInfo()
     {
         dd($this->QN->getFileInfo());
@@ -41,6 +47,10 @@ class QiniuController extends Controller
         }
     }
 
+    /**
+     * 获取素材列表
+     * 返回一个 分页数据
+     */
     public function getFodderList(){
         $fodder=new Fodder();
         $res=$fodder->where('id','>',0)
@@ -49,7 +59,18 @@ class QiniuController extends Controller
         return $res;
     }
 
+    /**
+     * 检查 指定的key的文件是否存在
+     */
     public function checkPic(Request $r){
         return Fodder::where('f_key',$r->all()['key'])->first()?:0;
     }
+
+    /**
+     * 删除素材
+     */
+    public function deleteFodder(Request $r,$id){
+
+    }
+
 }

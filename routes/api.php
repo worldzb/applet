@@ -17,11 +17,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/getToken', 'QiniuController@index');
+Route::get('/getToken', 'QiniuController@getToken');
 Route::get('/getFileInfo', 'QiniuController@getFileInfo');
 Route::get('/getFodderList', 'QiniuController@getFodderList');
 Route::post('/picUpload', 'QiniuController@picUpload');
 Route::get('/checkPic','QiniuController@checkPic');
+Route::delete('/fodder/{id}', 'QiniuController@deleteFodder');
 
 Route::post('/goods', 'GoodsController@addGoods');
 Route::get('/goods/{id}', 'GoodsController@getGoods');
