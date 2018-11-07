@@ -41,7 +41,7 @@ class QiniuController extends Controller
         $fodder->f_key=$r->all()['key'];
         $fodder->f_type="PIC";
         if($fodder->save()){
-            return 1;
+            return $fodder;
         }else{
             return 0;
         }
@@ -55,7 +55,7 @@ class QiniuController extends Controller
         $fodder=new Fodder();
         $res=$fodder->where('id','>',0)
                 ->orderBy('id','desc')
-                ->paginate(50);;
+                ->paginate(100);
         return $res;
     }
 
@@ -70,7 +70,7 @@ class QiniuController extends Controller
      * 删除素材
      */
     public function deleteFodder(Request $r,$id){
-
+        
     }
 
 }

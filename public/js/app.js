@@ -55300,7 +55300,7 @@ exports = module.exports = __webpack_require__(15)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -55346,6 +55346,8 @@ module.exports = function listToStyles (parentId, list) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__main_wxHeader_vue__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__main_wxHeader_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__main_wxHeader_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_layout_vue__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_layout_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__common_layout_vue__);
 //
 //
 //
@@ -55353,12 +55355,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'Container',
     components: {
-        wxHeader: __WEBPACK_IMPORTED_MODULE_0__main_wxHeader_vue___default.a
+        wxHeader: __WEBPACK_IMPORTED_MODULE_0__main_wxHeader_vue___default.a,
+        layout: __WEBPACK_IMPORTED_MODULE_1__common_layout_vue___default.a
     }
 });
 
@@ -55620,7 +55626,20 @@ var render = function() {
   return _c(
     "div",
     { attrs: { id: "main" } },
-    [_c("wx-header"), _vm._v(" "), _c("router-view")],
+    [
+      _c(
+        "layout",
+        [
+          _c("wx-header", { attrs: { slot: "wx-header" }, slot: "wx-header" }),
+          _vm._v(" "),
+          _c("router-view", {
+            attrs: { slot: "router-view" },
+            slot: "router-view"
+          })
+        ],
+        1
+      )
+    ],
     1
   )
 }
@@ -55773,7 +55792,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 //  https://jsonplaceholder.typicode.com/posts/
 //  http://localhost:8000/public/index.php/api/
-var PATH = 'http://localhost:8000/public/index.php/api/';
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
@@ -55787,12 +55805,12 @@ var PATH = 'http://localhost:8000/public/index.php/api/';
         var _this = this;
 
         //获取上传token
-        axios.get(PATH + 'getToken', {}).then(function (res) {
+        axios.get(this.config.PATH + 'getToken', {}).then(function (res) {
             _this.token = {
                 token: res.data
             };
         });
-        axios.get(PATH + 'getFodderList', {}).then(function (res) {
+        axios.get(this.config.PATH + 'getFodderList', {}).then(function (res) {
             _this.lib = res.data;
         });
     },
@@ -55806,7 +55824,7 @@ var PATH = 'http://localhost:8000/public/index.php/api/';
             this.dialogVisible = true;
         },
         handlePicUpSuccess: function handlePicUpSuccess(response, file, fileList) {
-            axios.post(PATH + 'picUpload', _extends({}, response)).then(function () {});
+            axios.post(this.config.PATH + 'picUpload', _extends({}, response)).then(function () {});
         }
     }
 
@@ -56017,7 +56035,7 @@ exports = module.exports = __webpack_require__(15)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.el-aside{\n    background: #545c64;\n}\n.el-col{\n    height: 100%;\n}\n#content{\n    height: 100%;\n    overflow: auto;\n}\n.el-container{\n    height: 100%;\n    overflow: auto;\n}\n.el-main{\n    height: 100%;\n    overflow: auto;\n}\n.goodsList ul{\n    list-style: none;\n    padding: 0;\n    margin: 0;\n    color: #fff;\n    cursor: pointer;\n}\n.goodsList li img{\n    width: 100%;\n    height: 100px;\n}\n.goodsList li:hover{\n    background: #0088cc\n}\n.goodsList p{\n    padding-left: 3px;\n    margin: 3px;\n}\nbutton{\n    outline: none\n}\nbutton:focus{\n    outline: 0;\n}\n.el-dialog__body{\n    padding:0px 20px;\n}\n.fooderItem-box{\n    position: relative;\n    width: 25%;\n    height: 100px;\n    float: left;\n    border:2px solid #fff;\n    overflow: hidden\n}\n.fooderItem-box:hover{\n    width: 25%;\n    height: 100px;\n    float: left;\n    border:2px solid #0088cc;\n}\n.pre-pic{\n    position: absolute;\n    top: 0;\n    left: 0;\n    padding:0px 5px;\n    background: #0088cc;\n    color: #fff;\n    opacity: 0.6;\n}\n.pre-pic:hover{\n    opacity: 1;\n    cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -56028,6 +56046,80 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_awe_dnd__ = __webpack_require__(231);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_awe_dnd___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_awe_dnd__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -56123,15 +56215,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 
-//  http://api.jinggangym.com/api/
-var PATH = 'http://localhost:8000/public/index.php/api/';
+
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_0_awe_dnd___default.a);
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             dialogVisible: false,
+            dialogImageUrl: '',
             activeName: '',
+            token: {},
             //商品滚动头图
             goods: {
+                id: 0,
                 g_type: '',
                 g_header: [],
                 g_title: '',
@@ -56144,16 +56240,28 @@ var PATH = 'http://localhost:8000/public/index.php/api/';
                 g_header: '',
                 g_desc: ''
             },
-            lib: []
+            fodderList: [],
+            goodsList: [],
+
+            currentAct: 'header',
+            dialogStatus: false,
+            currentGoodsId: 0
         };
     },
     created: function created() {
         var _this = this;
 
-        axios.get(PATH + 'getFodderList', {}).then(function (res) {
-            _this.lib = res.data;
+        //获取上传token
+        axios.get(this.config.PATH + 'getToken', {}).then(function (res) {
+            _this.token = {
+                token: res.data
+            };
+        });
+        axios.get(this.config.PATH + 'goodNewList', {}).then(function (res) {
+            _this.goodsList = res.data;
         });
     },
+    mounted: function mounted() {},
 
     methods: {
         createGoods: function createGoods() {
@@ -56163,51 +56271,191 @@ var PATH = 'http://localhost:8000/public/index.php/api/';
             });
         },
         handleClose: function handleClose() {},
-        handleClick: function handleClick() {
-            console.log('fdsafa');
+        handleClick: function handleClick(tab, event) {
+            if (this.activeName == 'first') {
+                this.loadFodder();
+            }
         },
-        addGoods: function addGoods() {
-            console.log(this.goods);
-            axios.post(this.config.PATH + 'goods', this.goods).then(function () {});
-
-            this.$message({
-                message: '添加成功',
-                type: 'success'
-            });
+        handleRemove: function handleRemove(file, fileList) {
+            console.log(file, fileList);
         },
-        addGHeader: function addGHeader() {
+        handlePictureCardPreview: function handlePictureCardPreview(file) {
+            this.dialogImageUrl = file.url;
+            this.dialogVisible = true;
+        },
+        loadFodder: function loadFodder() {
             var _this2 = this;
 
-            //console.log(this.temp.g_header);
-            axios.get(this.config.PATH + 'checkPic', {
-                params: {
-                    key: this.temp.g_header
-                }
-            }).then(function (res) {
-                if (res) {
-                    _this2.goods.g_header.push({
+            axios.get(this.config.PATH + 'getFodderList', {}).then(function (res) {
+                _this2.fodderList = res.data.data;
+            });
+        },
+        handlePicUpSuccess: function handlePicUpSuccess(response, file, fileList) {
+            var _this3 = this;
+
+            axios.post(this.config.PATH + 'picUpload', _extends({}, response)).then(function (res) {
+                _this3.$message({
+                    message: '上传成功',
+                    type: 'success'
+                });
+                if (_this3.currentAct == 'header') {
+                    _this3.goods.g_header.push({
                         id: res.data.id,
                         key: res.data.f_key
                     });
-                }
-            });
-        },
-        addGDesc: function addGDesc() {
-            var _this3 = this;
-
-            axios.get(this.config.PATH + 'checkPic', {
-                params: {
-                    key: this.temp.g_desc
-                }
-            }).then(function (res) {
-                console.log(res.data);
-                if (res) {
+                } else if (_this3.currentAct == 'desc') {
                     _this3.goods.g_desc.push({
                         id: res.data.id,
                         key: res.data.f_key
                     });
                 }
+                _this3.dialogStatus = false;
             });
+        },
+        addGoods: function addGoods() {
+            var _this4 = this;
+
+            axios.post(this.config.PATH + 'goods', this.goods).then(function (res) {
+                if (res.data.id > 0) {
+                    _this4.goodsList.splice(0, 0, res.data);
+                }
+            });
+        },
+        modifyGoods: function modifyGoods() {
+            var _this5 = this;
+
+            axios.put(this.config.PATH + 'goods', this.goods).then(function (res) {
+                if (res.data.id > 0) {
+                    _this5.goodsList.splice(_this5.currentGoodsId, 1, res.data);
+                }
+            });
+        },
+        addGHeader: function addGHeader($index) {
+            if (this.currentAct == 'header') {
+                this.goods.g_header.push({
+                    id: this.fodderList[$index].id,
+                    key: this.fodderList[$index].f_key
+                });
+            } else if (this.currentAct == 'desc') {
+                this.goods.g_desc.push({
+                    id: this.fodderList[$index].id,
+                    key: this.fodderList[$index].f_key
+                });
+            }
+            this.dialogStatus = false;
+        },
+        loadingGoods: function loadingGoods($index) {
+            var _this6 = this;
+
+            axios.get(this.config.PATH + 'goods/' + this.goodsList[$index].id, {}).then(function (res) {
+                _this6.convertGoods(res.data[0]);
+                _this6.currentGoodsId = $index;
+            });
+        },
+        deleteGoods: function deleteGoods($index) {
+            var _this7 = this;
+
+            axios.delete(this.config.PATH + 'goods/' + this.goodsList[$index].id, {}).then(function (res) {
+                if (res.data = 1) {
+                    _this7.$message({
+                        message: '删除成功',
+                        type: 'success'
+                    });
+                    _this7.goodsList.splice($index, 1);
+                }
+            });
+        },
+        convertGoods: function convertGoods($data) {
+            var g_header = [],
+                g_desc = [];
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+                for (var _iterator = $data.g_header[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var item = _step.value;
+
+                    g_header.push({
+                        id: item.id,
+                        key: item.f_key
+                    });
+                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
+                }
+            }
+
+            var _iteratorNormalCompletion2 = true;
+            var _didIteratorError2 = false;
+            var _iteratorError2 = undefined;
+
+            try {
+                for (var _iterator2 = $data.g_desc[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                    var _item = _step2.value;
+
+                    g_desc.push({
+                        id: _item.id,
+                        key: _item.f_key
+                    });
+                }
+            } catch (err) {
+                _didIteratorError2 = true;
+                _iteratorError2 = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                        _iterator2.return();
+                    }
+                } finally {
+                    if (_didIteratorError2) {
+                        throw _iteratorError2;
+                    }
+                }
+            }
+
+            this.goods = {
+                id: $data.id,
+                g_type: $data.g_type,
+                g_header: g_header,
+                g_title: $data.g_title,
+                g_price_now: $data.g_price_now,
+                g_price_old: $data.g_price_old,
+                g_desc: g_desc,
+                g_sales: $data.g_sales
+            };
+        },
+        deleteHeaderItem: function deleteHeaderItem($index) {
+            this.goods.g_header.splice($index, 1);
+        },
+        deleteDescItem: function deleteDescItem($index) {
+            this.goods.g_desc.splice($index, 1);
+        },
+        showDialog: function showDialog($type) {
+            this.currentAct = $type;
+            this.dialogStatus = true;
+        },
+        resetGoods: function resetGoods() {
+            this.goods = {
+                id: 0,
+                g_type: '',
+                g_header: [],
+                g_title: '',
+                g_price_now: '',
+                g_price_old: '',
+                g_desc: [],
+                g_sales: 0
+            };
         }
     }
 });
@@ -56229,7 +56477,7 @@ var render = function() {
         [
           _c(
             "el-aside",
-            { attrs: { width: "200px" } },
+            { ref: "aside", attrs: { width: "300px" } },
             [
               _c(
                 "el-button",
@@ -56246,7 +56494,90 @@ var render = function() {
                   }
                 },
                 [_c("i", { staticClass: "fa fa-plus" })]
-              )
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "goodsList" }, [
+                _c(
+                  "ul",
+                  _vm._l(_vm.goodsList, function(item, index) {
+                    return _c(
+                      "li",
+                      { key: index },
+                      [
+                        _c(
+                          "el-row",
+                          [
+                            _c("el-col", { attrs: { span: 8 } }, [
+                              _c("img", {
+                                attrs: {
+                                  src:
+                                    "http://phg4we4j7.bkt.clouddn.com/" +
+                                    item.g_header.f_key,
+                                  alt: ""
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("el-col", { attrs: { span: 16 } }, [
+                              _c("div", {}, [
+                                _c("h6", [
+                                  _c("strong", [_vm._v(_vm._s(item.g_title))])
+                                ]),
+                                _vm._v(" "),
+                                _c("p", [
+                                  _vm._v(
+                                    _vm._s(item.g_type) +
+                                      " | " +
+                                      _vm._s(item.g_price_now) +
+                                      " | " +
+                                      _vm._s(item.g_price_now)
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "p",
+                                  [
+                                    _c("el-button", {
+                                      attrs: {
+                                        type: "primary",
+                                        icon: "el-icon-edit",
+                                        circle: "",
+                                        size: "mini"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          _vm.loadingGoods(index)
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("el-button", {
+                                      attrs: {
+                                        type: "danger",
+                                        icon: "el-icon-delete",
+                                        circle: "",
+                                        size: "mini"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          _vm.deleteGoods(index)
+                                        }
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ])
+                            ])
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  })
+                )
+              ])
             ],
             1
           ),
@@ -56260,64 +56591,21 @@ var render = function() {
                 [
                   _c(
                     "el-col",
-                    {
-                      staticStyle: { height: "800px", overflow: "auto" },
-                      attrs: { span: 6 }
-                    },
-                    _vm._l(_vm.lib.data, function(item, index) {
-                      return _c(
-                        "el-row",
-                        { key: item.id, attrs: { gutter: 10 } },
-                        [
-                          _c("el-col", { attrs: { span: 8 } }, [
-                            _c("img", {
-                              staticClass: "image",
-                              staticStyle: { width: "100%" },
-                              attrs: {
-                                src:
-                                  "http://phg4we4j7.bkt.clouddn.com/" +
-                                  item.f_key
-                              }
-                            })
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "el-col",
-                            { attrs: { span: 3 } },
-                            [
-                              _c("span", [
-                                _c("strong", [_vm._v("key:")]),
-                                _vm._v(_vm._s(item.f_key))
-                              ]),
-                              _vm._v(" "),
-                              _c("br"),
-                              _vm._v(" "),
-                              _c("span", [
-                                _c("strong", [_vm._v("hash:")]),
-                                _vm._v(_vm._s(item.f_hash))
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "el-button",
-                                {
-                                  staticClass: "button",
-                                  attrs: { type: "text" }
-                                },
-                                [_vm._v("删除")]
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    })
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "el-col",
-                    { attrs: { span: 7 } },
+                    { attrs: { span: 10 } },
                     [
+                      _c(
+                        "el-button",
+                        {
+                          attrs: { type: "primary" },
+                          on: {
+                            click: function($event) {
+                              _vm.resetGoods()
+                            }
+                          }
+                        },
+                        [_vm._v("重置")]
+                      ),
+                      _vm._v(" "),
                       _c(
                         "el-form",
                         {
@@ -56437,31 +56725,11 @@ var render = function() {
                             { attrs: { label: "添加头图", prop: "name" } },
                             [
                               _c(
-                                "el-input",
-                                {
-                                  attrs: { placeholder: "头图地址key" },
-                                  model: {
-                                    value: _vm.temp.g_header,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.temp, "g_header", $$v)
-                                    },
-                                    expression: "temp.g_header"
-                                  }
-                                },
-                                [
-                                  _c("template", { slot: "prepend" }, [
-                                    _vm._v("key")
-                                  ])
-                                ],
-                                2
-                              ),
-                              _vm._v(" "),
-                              _c(
                                 "el-button",
                                 {
                                   on: {
                                     click: function($event) {
-                                      _vm.addGHeader()
+                                      _vm.showDialog("header")
                                     }
                                   }
                                 },
@@ -56478,41 +56746,64 @@ var render = function() {
                                   }
                                 },
                                 [_vm._v("清空")]
-                              )
+                              ),
+                              _vm._v(" "),
+                              _vm._l(_vm.goods.g_header, function(item, index) {
+                                return _c(
+                                  "div",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "dragging",
+                                        rawName: "v-dragging",
+                                        value: {
+                                          item: item,
+                                          list: _vm.goods.g_header,
+                                          group: "header"
+                                        },
+                                        expression:
+                                          "{ item: item, list: goods.g_header, group: 'header' }"
+                                      }
+                                    ],
+                                    key: index,
+                                    staticClass: "color-item"
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                " +
+                                        _vm._s(item.key) +
+                                        " \n                                "
+                                    ),
+                                    _c(
+                                      "el-button",
+                                      {
+                                        attrs: { type: "text" },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.deleteHeaderItem(index)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v(" x ")]
+                                    )
+                                  ],
+                                  1
+                                )
+                              })
                             ],
-                            1
+                            2
                           ),
                           _vm._v(" "),
                           _c(
                             "el-form-item",
-                            { attrs: { label: "添加头图", prop: "name" } },
+                            { attrs: { label: "添加描述", prop: "name" } },
                             [
-                              _c(
-                                "el-input",
-                                {
-                                  attrs: { placeholder: "描述地址key" },
-                                  model: {
-                                    value: _vm.temp.g_desc,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.temp, "g_desc", $$v)
-                                    },
-                                    expression: "temp.g_desc"
-                                  }
-                                },
-                                [
-                                  _c("template", { slot: "prepend" }, [
-                                    _vm._v("key")
-                                  ])
-                                ],
-                                2
-                              ),
-                              _vm._v(" "),
                               _c(
                                 "el-button",
                                 {
                                   on: {
                                     click: function($event) {
-                                      _vm.addGDesc()
+                                      _vm.showDialog("desc")
                                     }
                                   }
                                 },
@@ -56529,9 +56820,52 @@ var render = function() {
                                   }
                                 },
                                 [_vm._v("清空")]
-                              )
+                              ),
+                              _vm._v(" "),
+                              _vm._l(_vm.goods.g_desc, function(item, index) {
+                                return _c(
+                                  "div",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "dragging",
+                                        rawName: "v-dragging",
+                                        value: {
+                                          item: item,
+                                          list: _vm.goods.g_desc,
+                                          group: "desc"
+                                        },
+                                        expression:
+                                          "{ item: item, list: goods.g_desc, group: 'desc' }"
+                                      }
+                                    ],
+                                    key: index,
+                                    staticClass: "color-item"
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                " +
+                                        _vm._s(item.key) +
+                                        " \n                                "
+                                    ),
+                                    _c(
+                                      "el-button",
+                                      {
+                                        attrs: { type: "text" },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.deleteDescItem(index)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v(" x ")]
+                                    )
+                                  ],
+                                  1
+                                )
+                              })
                             ],
-                            1
+                            2
                           ),
                           _vm._v(" "),
                           _c(
@@ -56546,54 +56880,61 @@ var render = function() {
                             [_vm._v("确认添加")]
                           ),
                           _vm._v(" "),
-                          _vm._l(_vm.goods.g_header, function(item) {
-                            return _c("text", { key: item.id }, [
-                              _vm._v(
-                                "\n                            " +
-                                  _vm._s(item) +
-                                  "\n                        "
+                          _vm.goods.id
+                            ? _c(
+                                "el-button",
+                                {
+                                  attrs: { type: "primary" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.modifyGoods()
+                                    }
+                                  }
+                                },
+                                [_vm._v("修改")]
                               )
-                            ])
-                          })
+                            : _vm._e()
                         ],
-                        2
+                        1
                       )
                     ],
                     1
                   ),
                   _vm._v(" "),
-                  _c("el-col", { attrs: { span: 7 } }, [
+                  _c("el-col", { attrs: { span: 10 } }, [
+                    _c(
+                      "h4",
+                      {
+                        staticStyle: {
+                          "border-bottom": "1px solid #999",
+                          padding: "10px"
+                        }
+                      },
+                      [_vm._v("预览")]
+                    ),
+                    _vm._v(" "),
                     _c(
                       "div",
-                      { staticStyle: { border: "1px solid #999" } },
+                      {
+                        staticStyle: {
+                          border: "1px solid #999",
+                          height: "800px",
+                          overflow: "auto"
+                        }
+                      },
                       [
                         _c(
-                          "h4",
-                          {
-                            staticStyle: {
-                              "border-bottom": "1px solid #999",
-                              padding: "10px"
-                            }
-                          },
-                          [_vm._v("预览")]
-                        ),
-                        _vm._v(" "),
-                        _c(
                           "el-carousel",
-                          { attrs: { height: "150px" } },
-                          _vm._l(_vm.goods.g_header, function(item) {
-                            return _c("el-carousel-item", { key: item.id }, [
-                              _vm._v(
-                                "\n                                " +
-                                  _vm._s(item.key) +
-                                  "\n                                "
-                              ),
+                          { attrs: { height: "300px" } },
+                          _vm._l(_vm.goods.g_header, function(item, index) {
+                            return _c("el-carousel-item", { key: index }, [
                               _c("img", {
                                 attrs: {
                                   src:
                                     "http://phg4we4j7.bkt.clouddn.com/" +
                                     item.key,
-                                  alt: "xvx"
+                                  alt: "xvx",
+                                  width: "100%"
                                 }
                               })
                             ])
@@ -56603,14 +56944,15 @@ var render = function() {
                         _c("br"),
                         _c("br"),
                         _vm._v(" "),
-                        _vm._l(_vm.goods.g_desc, function(item) {
-                          return _c("div", { key: item.id }, [
+                        _vm._l(_vm.goods.g_desc, function(item, index) {
+                          return _c("div", { key: index }, [
                             _c("img", {
                               attrs: {
                                 src:
                                   "http://phg4we4j7.bkt.clouddn.com/" +
                                   item.key,
-                                alt: "xvx"
+                                alt: "xvx",
+                                width: "100%"
                               }
                             })
                           ])
@@ -56621,6 +56963,173 @@ var render = function() {
                   ])
                 ],
                 1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-dialog",
+        {
+          attrs: { title: _vm.currentAct, visible: _vm.dialogStatus },
+          on: {
+            "update:visible": function($event) {
+              _vm.dialogStatus = $event
+            }
+          }
+        },
+        [
+          _c(
+            "el-tabs",
+            {
+              on: { "tab-click": _vm.handleClick },
+              model: {
+                value: _vm.activeName,
+                callback: function($$v) {
+                  _vm.activeName = $$v
+                },
+                expression: "activeName"
+              }
+            },
+            [
+              _c(
+                "el-tab-pane",
+                {
+                  attrs: { label: "素材库", name: "first" },
+                  on: {
+                    click: function($event) {
+                      _vm.loadFodder()
+                    }
+                  }
+                },
+                _vm._l(_vm.fodderList, function(item, index) {
+                  return _c(
+                    "div",
+                    {
+                      staticClass: "fooderItem-box",
+                      on: {
+                        dblclick: function($event) {
+                          _vm.addGHeader(index)
+                        }
+                      }
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "http://phg4we4j7.bkt.clouddn.com/" + item.f_key,
+                          width: "100%"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "pre-pic",
+                          on: {
+                            click: function($event) {
+                              $event.stopPropagation()
+                              _vm.dialogVisible = true
+                              _vm.dialogImageUrl =
+                                "http://phg4we4j7.bkt.clouddn.com/" + item.f_key
+                            }
+                          }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "el-icon-circle-plus-outline"
+                          })
+                        ]
+                      )
+                    ]
+                  )
+                })
+              ),
+              _vm._v(" "),
+              _c(
+                "el-tab-pane",
+                { attrs: { label: "上传图片", name: "second" } },
+                [
+                  _c(
+                    "el-upload",
+                    {
+                      attrs: {
+                        action: "http://up-z2.qiniup.com",
+                        "list-type": "picture-card",
+                        "on-preview": _vm.handlePictureCardPreview,
+                        "on-remove": _vm.handleRemove,
+                        "auto-upload": true,
+                        data: _vm.token,
+                        multiple: true,
+                        "on-success": _vm.handlePicUpSuccess
+                      }
+                    },
+                    [_c("i", { staticClass: "el-icon-plus" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-dialog",
+                    {
+                      attrs: {
+                        visible: _vm.dialogVisible,
+                        "append-to-body": ""
+                      },
+                      on: {
+                        "update:visible": function($event) {
+                          _vm.dialogVisible = $event
+                        }
+                      }
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          width: "100%",
+                          src: _vm.dialogImageUrl,
+                          alt: ""
+                        }
+                      })
+                    ]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "dialog-footer",
+              attrs: { slot: "footer" },
+              slot: "footer"
+            },
+            [
+              _c(
+                "el-button",
+                {
+                  on: {
+                    click: function($event) {
+                      _vm.outerVisible = false
+                    }
+                  }
+                },
+                [_vm._v("取 消")]
+              ),
+              _vm._v(" "),
+              _c(
+                "el-button",
+                {
+                  attrs: { type: "primary" },
+                  on: {
+                    click: function($event) {
+                      _vm.innerVisible = true
+                    }
+                  }
+                },
+                [_vm._v("确定")]
               )
             ],
             1
@@ -100219,6 +100728,500 @@ module.exports = __webpack_require__(30);
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(227)
+}
+var normalizeComponent = __webpack_require__(17)
+/* script */
+var __vue_script__ = __webpack_require__(229)
+/* template */
+var __vue_template__ = __webpack_require__(230)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/common/layout.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-d19feeda", Component.options)
+  } else {
+    hotAPI.reload("data-v-d19feeda", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 227 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(228);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(16)("e93b022c", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d19feeda\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./layout.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d19feeda\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./layout.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 228 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(15)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.main{\n    background:red;\n}\n.header{\n    height: 61px;\n}\n.body{\n    background: #fff;\n    overflow: auto;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 229 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    watch: {},
+    created: function created() {},
+    mounted: function mounted() {
+        var _this = this;
+
+        this.$refs.main.style.height = window.innerHeight + 'px';
+        this.$refs.main.style.width = window.innerWidth + 'px';
+        this.$refs.body.style.height = window.innerHeight - 61 + 'px';
+        window.onresize = function () {
+            _this.$refs.main.style.height = window.innerHeight + 'px';
+            _this.$refs.main.style.width = window.innerWidth + 'px';
+        };
+    }
+});
+
+/***/ }),
+/* 230 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { ref: "main", staticClass: "main" }, [
+    _c(
+      "div",
+      { ref: "header", staticClass: "header" },
+      [_vm._t("wx-header")],
+      2
+    ),
+    _vm._v(" "),
+    _c("div", { ref: "body", staticClass: "body" }, [_vm._t("router-view")], 2)
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-d19feeda", module.exports)
+  }
+}
+
+/***/ }),
+/* 231 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*!
+ * Awe-dnd v0.3.0
+ * (c) 2017 Awe <hilongjw@gmail.com>
+ * Released under the MIT License.
+ */
+(function (global, factory) {
+	 true ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(global.VueDragging = factory());
+}(this, (function () { 'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var DragData = function () {
+    function DragData() {
+        _classCallCheck(this, DragData);
+
+        this.data = {};
+    }
+
+    _createClass(DragData, [{
+        key: 'new',
+        value: function _new(key) {
+            if (!this.data[key]) {
+                this.data[key] = {
+                    className: '',
+                    List: [],
+                    KEY_MAP: {}
+                };
+            }
+            return this.data[key];
+        }
+    }, {
+        key: 'get',
+        value: function get(key) {
+            return this.data[key];
+        }
+    }]);
+
+    return DragData;
+}();
+
+var $dragging = {
+    listeners: {},
+    $on: function $on(event, func) {
+        var events = this.listeners[event];
+        if (!events) {
+            this.listeners[event] = [];
+        }
+        this.listeners[event].push(func);
+    },
+    $once: function $once(event, func) {
+        var vm = this;
+        function on() {
+            vm.$off(event, on);
+
+            for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+                args[_key] = arguments[_key];
+            }
+
+            func.apply(vm, args);
+        }
+        this.$on(event, on);
+    },
+    $off: function $off(event, func) {
+        var events = this.listeners[event];
+        if (!func || !events) {
+            this.listeners[event] = [];
+            return;
+        }
+        this.listeners[event] = this.listeners[event].filter(function (i) {
+            return i !== func;
+        });
+    },
+    $emit: function $emit(event, context) {
+        var events = this.listeners[event];
+        if (events && events.length > 0) {
+            events.forEach(function (func) {
+                func(context);
+            });
+        }
+    }
+};
+var _ = {
+    on: function on(el, type, fn) {
+        el.addEventListener(type, fn);
+    },
+    off: function off(el, type, fn) {
+        el.removeEventListener(type, fn);
+    },
+    addClass: function addClass(el, cls) {
+        if (arguments.length < 2) {
+            el.classList.add(cls);
+        } else {
+            for (var i = 1, len = arguments.length; i < len; i++) {
+                el.classList.add(arguments[i]);
+            }
+        }
+    },
+    removeClass: function removeClass(el, cls) {
+        if (arguments.length < 2) {
+            el.classList.remove(cls);
+        } else {
+            for (var i = 1, len = arguments.length; i < len; i++) {
+                el.classList.remove(arguments[i]);
+            }
+        }
+    }
+};
+
+var vueDragging = function (Vue, options) {
+    var isPreVue = Vue.version.split('.')[0] === '1';
+    var dragData = new DragData();
+    var isSwap = false;
+    var Current = null;
+
+    function handleDragStart(e) {
+        var el = getBlockEl(e.target);
+        var key = el.getAttribute('drag_group');
+        var drag_key = el.getAttribute('drag_key');
+        var DDD = dragData.new(key);
+        var item = DDD.KEY_MAP[drag_key];
+        var index = DDD.List.indexOf(item);
+        _.addClass(el, 'dragging');
+
+        if (e.dataTransfer) {
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text', JSON.stringify(item));
+        }
+
+        Current = {
+            index: index,
+            item: item,
+            el: el,
+            group: key
+        };
+    }
+
+    function handleDragOver(e) {
+        if (e.preventDefault) {
+            e.preventDefault();
+        }
+        return false;
+    }
+
+    function handleDragEnter(e) {
+        var el = void 0;
+        if (e.type === 'touchmove') {
+            e.stopPropagation();
+            e.preventDefault();
+            el = getOverElementFromTouch(e);
+            el = getBlockEl(el);
+        } else {
+            el = getBlockEl(e.target);
+        }
+
+        if (!el || !Current) return;
+
+        var key = el.getAttribute('drag_group');
+        if (key !== Current.group || !Current.el || !Current.item || el === Current.el) return;
+        var drag_key = el.getAttribute('drag_key');
+        var DDD = dragData.new(key);
+        var item = DDD.KEY_MAP[drag_key];
+
+        if (item === Current.item) return;
+
+        var indexTo = DDD.List.indexOf(item);
+        var indexFrom = DDD.List.indexOf(Current.item);
+
+        swapArrayElements(DDD.List, indexFrom, indexTo);
+        Current.index = indexTo;
+        isSwap = true;
+        $dragging.$emit('dragged', {
+            draged: Current.item,
+            to: item,
+            value: DDD.value,
+            group: key
+        });
+    }
+
+    function handleDragLeave(e) {
+        _.removeClass(getBlockEl(e.target), 'drag-over', 'drag-enter');
+    }
+
+    function handleDrag(e) {}
+
+    function handleDragEnd(e) {
+        var el = getBlockEl(e.target);
+        _.removeClass(el, 'dragging', 'drag-over', 'drag-enter');
+        Current = null;
+        // if (isSwap) {
+        isSwap = false;
+        var group = el.getAttribute('drag_group');
+        $dragging.$emit('dragend', { group: group });
+        // }
+    }
+
+    function handleDrop(e) {
+        e.preventDefault();
+        if (e.stopPropagation) {
+            e.stopPropagation();
+        }
+        return false;
+    }
+
+    function getBlockEl(el) {
+        if (!el) return;
+        while (el.parentNode) {
+            if (el.getAttribute && el.getAttribute('drag_block')) {
+                return el;
+                break;
+            } else {
+                el = el.parentNode;
+            }
+        }
+    }
+
+    function swapArrayElements(items, indexFrom, indexTo) {
+        var item = items[indexTo];
+        if (isPreVue) {
+            items.$set(indexTo, items[indexFrom]);
+            items.$set(indexFrom, item);
+        } else {
+            Vue.set(items, indexTo, items[indexFrom]);
+            Vue.set(items, indexFrom, item);
+        }
+        return items;
+    }
+
+    function getOverElementFromTouch(e) {
+        var touch = e.touches[0];
+        var el = document.elementFromPoint(touch.clientX, touch.clientY);
+        return el;
+    }
+
+    function addDragItem(el, binding, vnode) {
+        var item = binding.value.item;
+        var list = binding.value.list;
+        var DDD = dragData.new(binding.value.group);
+
+        var drag_key = isPreVue ? binding.value.key : vnode.key;
+        DDD.value = binding.value;
+        DDD.className = binding.value.className;
+        DDD.KEY_MAP[drag_key] = item;
+        if (list && DDD.List !== list) {
+            DDD.List = list;
+        }
+        el.setAttribute('draggable', 'true');
+        el.setAttribute('drag_group', binding.value.group);
+        el.setAttribute('drag_block', binding.value.group);
+        el.setAttribute('drag_key', drag_key);
+
+        _.on(el, 'dragstart', handleDragStart);
+        _.on(el, 'dragenter', handleDragEnter);
+        _.on(el, 'dragover', handleDragOver);
+        _.on(el, 'drag', handleDrag);
+        _.on(el, 'dragleave', handleDragLeave);
+        _.on(el, 'dragend', handleDragEnd);
+        _.on(el, 'drop', handleDrop);
+
+        _.on(el, 'touchstart', handleDragStart);
+        _.on(el, 'touchmove', handleDragEnter);
+        _.on(el, 'touchend', handleDragEnd);
+    }
+
+    function removeDragItem(el, binding, vnode) {
+        var DDD = dragData.new(binding.value.group);
+        var drag_key = isPreVue ? binding.value.key : vnode.key;
+        DDD.KEY_MAP[drag_key] = undefined;
+        _.off(el, 'dragstart', handleDragStart);
+        _.off(el, 'dragenter', handleDragEnter);
+        _.off(el, 'dragover', handleDragOver);
+        _.off(el, 'drag', handleDrag);
+        _.off(el, 'dragleave', handleDragLeave);
+        _.off(el, 'dragend', handleDragEnd);
+        _.off(el, 'drop', handleDrop);
+
+        _.off(el, 'touchstart', handleDragStart);
+        _.off(el, 'touchmove', handleDragEnter);
+        _.off(el, 'touchend', handleDragEnd);
+    }
+
+    Vue.prototype.$dragging = $dragging;
+    if (!isPreVue) {
+        Vue.directive('dragging', {
+            bind: addDragItem,
+            update: function update(el, binding, vnode) {
+                var DDD = dragData.new(binding.value.group);
+                var item = binding.value.item;
+                var list = binding.value.list;
+
+                var drag_key = vnode.key;
+                var old_item = DDD.KEY_MAP[drag_key];
+                if (item && old_item !== item) {
+                    DDD.KEY_MAP[drag_key] = item;
+                }
+                if (list && DDD.List !== list) {
+                    DDD.List = list;
+                }
+            },
+
+            unbind: removeDragItem
+        });
+    } else {
+        Vue.directive('dragging', {
+            update: function update(newValue, oldValue) {
+                addDragItem(this.el, {
+                    modifiers: this.modifiers,
+                    arg: this.arg,
+                    value: newValue,
+                    oldValue: oldValue
+                });
+            },
+            unbind: function unbind(newValue, oldValue) {
+                removeDragItem(this.el, {
+                    modifiers: this.modifiers,
+                    arg: this.arg,
+                    value: newValue ? newValue : { group: this.el.getAttribute('drag_group') },
+                    oldValue: oldValue
+                });
+            }
+        });
+    }
+};
+
+return vueDragging;
+
+})));
+
 
 /***/ })
 /******/ ]);

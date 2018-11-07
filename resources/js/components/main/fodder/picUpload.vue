@@ -38,7 +38,6 @@
 <script>
 //  https://jsonplaceholder.typicode.com/posts/
 //  http://localhost:8000/public/index.php/api/
-const PATH='http://localhost:8000/public/index.php/api/';
 export default {
     data(){
         return {
@@ -50,12 +49,12 @@ export default {
     },
     created(){
         //获取上传token
-        axios.get(PATH+'getToken',{}).then((res)=>{
+        axios.get(this.config.PATH+'getToken',{}).then((res)=>{
             this.token={
                 token:res.data
             };
         });
-        axios.get(PATH+'getFodderList',{}).then((res)=>{
+        axios.get(this.config.PATH+'getFodderList',{}).then((res)=>{
             this.lib=res.data;
         });
     },
@@ -68,8 +67,8 @@ export default {
             this.dialogVisible = true;
         },
         handlePicUpSuccess(response, file, fileList){
-            axios.post(PATH+'picUpload',{...response}).then(()=>{
-
+            axios.post(this.config.PATH+'picUpload',{...response}).then(()=>{
+                
             });
         }
     }

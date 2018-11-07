@@ -25,7 +25,9 @@ Route::get('/checkPic','QiniuController@checkPic');
 Route::delete('/fodder/{id}', 'QiniuController@deleteFodder');
 
 Route::post('/goods', 'GoodsController@addGoods');
+Route::put('/goods', 'GoodsController@modifyGoods');
 Route::get('/goods/{id}', 'GoodsController@getGoods');
+Route::delete('/goods/{id}','GoodsController@deleteGoods');
 Route::get('/goodList/{type}', 'GoodsController@getGoodsList');
 Route::get('/goodNewList', 'GoodsController@getNewGoodsList');
 Route::get('/main', 'GoodsController@main');
