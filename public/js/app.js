@@ -57161,11 +57161,11 @@ if (false) {
  * @Author: worldzb 
  * @Date: 2018-09-01 10:40:02 
  * @Last Modified by: worldzb
- * @Last Modified time: 2018-11-06 19:36:44
+ * @Last Modified time: 2018-11-07 17:46:27
  */
 
 var config = {
-  PATH: 'http://localhost:8000/public/index.php/api/'
+  PATH: 'http://api.jinggangym.com/api/'
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (config);
